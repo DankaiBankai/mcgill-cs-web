@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header{
+    background-color: black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#nav-wrapper{
+    background-color: grey;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.nav{
+    color: white;
+    display: grid;
+    grid-template-columns: auto 13% 13% 13% 10% 10% 8%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+        "logo prospective academic research donate about search"
+        "logo people news employment donate about search";
+    grid-gap: 1px;
+}
+
+#logo{
+    grid-area: logo;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+#prospective{
+    grid-area: prospective;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+#academic{
+    grid-area: academic;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+
+}
+#research{
+    grid-area: research;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+
+}
+#donate{
+    grid-area: donate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+
+}
+#about{
+    grid-area: about;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+
+}
+#search{
+    grid-area: search;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+
+}
+#people{
+    grid-area: people;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+
+}
+#news{
+    grid-area: news;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+
+}
+#employment{
+    grid-area: employment;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+#prospective:hover,
+#academic:hover,
+#research:hover,
+#people:hover,
+#news:hover,
+#employment:hover,
+#donate:hover,
+#about:hover{
+    background-color: red;
+}
+
+
+.nav a{
+    text-decoration: none;
+    color: white;
+}
