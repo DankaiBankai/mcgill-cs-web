@@ -1,0 +1,113 @@
+ 
+  .banner {
+    position: relative;
+    width: 100%;
+  }
+  
+  .banner-image {
+    opacity: 1;
+    display: block;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    width: 100%;
+    max-width: 1600px;
+    height: 260px;
+    background-image: url(../images/prospective-stock.jpg);
+    background-size: cover; /* or contain depending on what you want */
+    background-position: right;
+    background-repeat: no-repeat;
+    text-align:center;
+    margin:auto;
+    padding:0;
+    text-align: center;
+    display: table; 
+    opacity: 0.85;
+  }
+  
+  .banner-box {
+    transition: .5s ease;
+    opacity: 1;
+    position: absolute;
+    top: 75%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+  }
+  
+  .banner-text {
+    background-color: #0e0f0e;
+    color: white;
+    font-size: 22px;
+    font-weight: 800;
+    padding: 16px 42px;
+  }
+
+
+  .menu-section-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .menu-section {
+    background-image: url(../images/Liquid-Cheese.svg);
+    background-size: cover;
+    width: 100%;
+    flex: 0 1 400px;
+    margin: 20px;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: aquamarine;
+    font-size: 2.7rem;
+    display: grid;
+    /* place-items: center; */
+    border-radius: 1rem;
+    
+  }
+
+  .menu-section h4 
+  {
+    text-align: center;
+    font-weight: 700;
+  }
+
+  .menu-section ul
+  {
+    font-weight: 100;
+    text-align: center;
+    list-style-type: none;
+    font-size: 2rem;
+  }
+
+  .menu-section li
+  {
+    width: 100%;
+    font-weight: 100;
+    padding: 15px;
+    text-align: center;
+    list-style-type: none;
+    font-size: 2rem;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+  .menu-section li:hover, .menu-section li:focus, .menu-section li:active
+  {
+    -webkit-transform: translateX(-8px);
+    transform: translateX(-8px);
+  }
+
+
+
+  
+  
+  
