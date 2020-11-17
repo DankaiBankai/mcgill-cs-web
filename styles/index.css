@@ -210,8 +210,13 @@ header{
     align-items: center;
 }
 
+.article:hover{
+    color: red !important;
+}
+
 .article{
     padding: 1.5em;
+    color: white;
     /* background-color: #fff; */
 }
 
@@ -224,15 +229,12 @@ header{
 .latestDate{
     font-size: 0.73em;
     margin-top: 0.8em;
-    color: rgb(102, 115, 128);
 }
 
-.latest a:hover{
+.latest:hover{
     color: red;
 }
-
 .latestTitle{
-    color: white;
     margin-top: 0.4em;
 }
 
