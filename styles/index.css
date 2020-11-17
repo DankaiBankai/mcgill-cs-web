@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+/* remove extra space around and font */
 *{
     padding: 0;
     margin: 0;
@@ -16,6 +17,7 @@ body{
         "footer footer";
     height: 100%;
 }
+/* top bar -> header and website navigation */
 header{
     background-color: black;
     padding-top: 5px;
@@ -37,83 +39,52 @@ header{
         "logo people news employment donate about search";
     grid-gap: 1px;
 }
+#logo,
+#prospective,
+#academic,
+#research,
+#people,
+#news,
+#employment,
+#donate,
+#about,
+#search
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
 
 #logo{
     grid-area: logo;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
 }
 #prospective{
     grid-area: prospective;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
 }
 #academic{
     grid-area: academic;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-
 }
 #research{
     grid-area: research;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-
 }
 #donate{
     grid-area: donate;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-
 }
 #about{
     grid-area: about;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-
 }
 #search{
     grid-area: search;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-
 }
 #people{
     grid-area: people;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-
 }
 #news{
     grid-area: news;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-
 }
 #employment{
     grid-area: employment;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
 }
 #prospective:hover,
 #academic:hover,
@@ -139,13 +110,13 @@ header{
 .teaching img{
     object-fit: cover;
     width: 100%;
-    max-height: 450px;
+    max-height: 500px;
 }
 #floatTeaching{
     position: absolute;
     color: white;
     background-color: black;
-    margin-left: 80px;
+    margin-left: 10%;
     padding: 10px;
     top: 0;
 }
@@ -215,11 +186,56 @@ header{
 .dot:hover {
     background-color: red;
 }
-
 .latest{
     grid-area: latest;
-    background-color: greenyellow;
+    background-color: #102A43;
 }
+.latest a{
+    text-decoration: none;
+}
+#floatLatest{
+    position: absolute;
+    color: white;
+    background-color: black;
+    margin-left: 20%;
+    padding: 10px;
+}
+.latestGrid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 40%);
+    grid-gap: 1em;
+    padding: 10px;
+    margin: 50px -50px 50px 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.article{
+    padding: 1.5em;
+    /* background-color: #fff; */
+}
+
+.latestGrid img{
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+}
+
+.latestDate{
+    font-size: 0.73em;
+    margin-top: 0.8em;
+    color: rgb(102, 115, 128);
+}
+
+.latest a:hover{
+    color: red;
+}
+
+.latestTitle{
+    color: white;
+    margin-top: 0.4em;
+}
+
 .events{
     grid-area: events;
     background-color: aqua;
