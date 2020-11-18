@@ -116,7 +116,10 @@ header{
     position: absolute;
     color: white;
     background-color: black;
+    font-size: 1.3em;
+    /*
     margin-left: 10%;
+    */
     padding: 10px;
     top: 0;
 }
@@ -196,16 +199,23 @@ header{
 #floatLatest{
     position: absolute;
     color: white;
-    background-color: black;
+    /*background-color: black;*/
+    font-size: 1.3em;
+    /*
     margin-left: 20%;
+    */
+    margin-left: 10%;
+    margin-top: 20px;
     padding: 10px;
 }
 .latestGrid{
     display: grid;
     grid-template-columns: repeat(auto-fit, 40%);
     grid-gap: 1em;
-    padding: 10px;
-    margin: 50px -50px 50px 50px;
+    padding: 50px 10px 30px 50px;
+    /*
+    margin: 50px -50px 50px 45px;
+     */
     justify-content: center;
     align-items: center;
 }
