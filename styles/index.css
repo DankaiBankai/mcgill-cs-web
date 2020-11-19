@@ -130,6 +130,10 @@ header{
 }
 .aSlide{
     display: none;
+    color: white;
+}
+.aSlide:hover{
+    color: red;
 }
 .prev, .next{
     cursor: pointer;
@@ -163,7 +167,9 @@ header{
     font-size: 25px;
 }
 .caption{
+    /*
     color: #f2f2f2;
+     */
     font-size: 15px;
     padding: 8px 0;
     position: absolute;
@@ -220,11 +226,11 @@ header{
     align-items: center;
 }
 
-.article:hover{
-    color: red !important;
+.latestArticle:hover{
+    color: red;
 }
 
-.article{
+.latestArticle{
     padding: 1.5em;
     color: white;
     /* background-color: #fff; */
@@ -251,8 +257,77 @@ header{
 .events{
     grid-area: events;
     background-color: aqua;
+    margin-left: -120px;
+    padding-right: 30px;
 }
+.events a{
+    text-decoration: none;
+}
+#floatEvents{
+    position: absolute;
+    color: white;
+    font-size: 1.3em;
+    margin-left: 5%;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.eventsGrid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 80%);
+    grid-gap: 1px;
+    padding: 50px 10px 30px 50px;
+    /*
+    background-color: black;
+    */
+    background-color: #102A43;
+    justify-content: center;
+    align-items: center;
+}
+.eventsGrid a{
+    color: white;
+}
+
+
+.eventsDateWrapper {
+    margin-right: 15px;
+    min-width: 50px;
+    height: 50px;
+    padding: 10px;
+    display: block;
+    float: left;
+}
+.eventsMonth {
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 300;
+    padding: 0;
+}
+.eventsDate {
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    font-weight: 200;
+}
+.eventsTitle{
+    font-size: 0.7em;
+}
+.latestCategory{
+    font-size: 0.55em;
+    color: rgb(102, 115, 128);
+}
+
+.eventsArticle{
+    background-color: black;
+    height: 70px;
+}
+#allEvents{
+    background-color: black;
+}
+
 footer{
     grid-area: footer;
     background-color: black;
+    color: white;
 }

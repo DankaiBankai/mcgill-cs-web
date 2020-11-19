@@ -5,7 +5,7 @@
     <title>McGill School of Computer Science</title>
     <link rel="stylesheet" href="styles/index.css">
 </head>
-<body>
+<>
     <header>
         <!-- todo add search -->
         <!-- Header and navigation bar -->
@@ -30,7 +30,7 @@
     </header>
     <!-- Teaching section -->
     <div class="teaching">
-        <div class="slideshow-container">
+        <div class="slideshow-container" onmouseover="changeCaptionBackground('black')" onmouseout="changeCaptionBackground('rgba(0,0,0,0.35)')">
             <a href="#">
                 <div class="aSlide fade">
                     <img src="./images/slide1.jpg" alt="tmpImage1">
@@ -69,28 +69,28 @@
         </div>
         <div class="latestGrid">
             <a href="#">
-                <article class="article">
+                <article class="latestArticle">
                     <img src="./images/slide1.jpg" alt="slide1" class="latestImg">
                     <div class="latestDate" style="color: rgb(102, 115, 128);">Nov. 17, 2020</div>
                     <div class="latestTitle">Virtual Open House 2020 | Porte ouvertes virtuelle 2020</div>
                 </article>
             </a>
             <a href="#">
-                <article class="article">
+                <article class="latestArticle">
                     <img src="./images/slide2.jpg" alt="slide1" class="latestImg">
                     <div class="latestDate" style="color: rgb(102, 115, 128);">Nov. 17, 2020</div>
                     <div class="latestTitle">Virtual Open House 2020 | Porte ouvertes virtuelle 2020</div>
                 </article>
             </a>
             <a href="#">
-                <article class="article">
+                <article class="latestArticle">
                     <img src="./images/slide3.jpg" alt="slide1" class="latestImg">
                     <div class="latestDate" style="color: rgb(102, 115, 128);">Nov. 17, 2020</div>
                     <div class="latestTitle">Virtual Open House 2020 | Porte ouvertes virtuelle 2020</div>
                 </article>
             </a>
             <a href="#">
-                <article class="article">
+                <article class="latestArticle">
                     <img src="./images/slide1.jpg" alt="slide1" class="latestImg">
                     <div class="latestDate" style="color: rgb(102, 115, 128);">Nov. 17, 2020</div>
                     <div class="latestTitle">Virtual Open House 2020 | Porte ouvertes virtuelle 2020</div>
@@ -99,6 +99,54 @@
         </div>
     </div>
     <div class="events">
+        <div id="floatEvents">
+            events<span style="color: red">@CS</span>
+        </div>
+        <div class="eventsGrid">
+            <a href="#">
+                <article class="eventsArticle">
+                    <div class="eventsDateWrapper">
+                        <div class="eventsDate">
+                            13
+                        </div>
+                        <div class="eventsMonth">
+                            Nov
+                        </div>
+                    </div>
+                    <div class="eventsTitle">
+                        Virtual Collaboration Techniques to Catalyze Open Innovation
+                    </div>
+                    <div class="latestCategory">
+                        Announcement
+                    </div>
+                </article>
+            </a>
+
+            <a href="#">
+                <article class="eventsArticle">
+                    <div class="eventsDateWrapper">
+                        <div class="eventsDate">
+                            13
+                        </div>
+                        <div class="eventsMonth">
+                            Nov
+                        </div>
+                    </div>
+                    <div class="eventsTitle">
+                        Virtual Collaboration Techniques to Catalyze Open Innovation
+                    </div>
+                    <div class="latestCategory">
+                        Announcement
+                    </div>
+                </article>
+            </a>
+            <a href="#">
+                <div id="allEvents">
+                    All Events
+                </div>
+            </a>
+
+        </div>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur dolores enim nihil ut voluptates. Cumque eos laborum natus quisquam voluptatum!
     </div>
     <!-- footer section -->
@@ -106,5 +154,6 @@
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam autem dolore dolores doloribus exercitationem fuga odio pariatur quam repudiandae veniam. Aperiam autem delectus distinctio dolorem eaque eligendi, itaque labore magnam maxime minima neque nulla optio quae quaerat quibusdam quod rem repellat suscipit tempore temporibus vel, voluptate voluptatibus. Alias, amet hic!
     </footer>
     <script src="./scripts/slideshow.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 </html>
