@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>McGill School of Computer Science</title>
+    <!--
+    <link rel="stylesheet" href="styles/index.css">
+    -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./styles/index.css') }}">
+</head>
+<body>
+    <header>
+        <!-- todo add search -->
+        <!-- Header and navigation bar -->
+        <div id="nav-wrapper">
+            <nav class="nav">
+                <a href="index.html" id="logo">
+                    <img src="{{ url_for('static', filename='./images/logo-header.png')}}" alt="Logo of SOCS">
+                </a>
+                <a href="./html/prospective/menu-propesctive.html" id="prospective">Prospective</a>
+                <a href="./html/people/menu-people.html" id="people">People</a>
+                <a href="./html/academic/menu-academic.html" id="academic">Academic</a>
+                <a href="./html/news/news.html" id="news">News</a>
+                <a href="./html/research/research.html" id="research">Research</a>
+                <a href="#" id="employment">Employment</a>
+                <a href="#" id="donate">Donate</a>
+                <a href="./html/about/menu-about.html" id="about">About</a>
+                <div id="search">
+                    search
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- Teaching section -->
+    <div class="teaching">
+        <div class="slideshow-container" onmouseover="changeCaptionBackground('black')" onmouseout="changeCaptionBackground('rgba(0,0,0,0.35)')">
+            {{teaching|safe}}
+            <a class="prev" onclick="moveSlides(-1)">&#10094;</a>\n
+            <a class="next" onclick="moveSlides(1)">&#10095;</a>\n
+        </div>
+        <br>
+        <div style="text-align: center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+    <!-- Latest section -->
+    <div class="latest">
+        <div id="floatLatest">
+            latest<span style="color: red">@CS</span>
+        </div>
+        <div class="latestGrid">
+            <!-- todo change this -->
+            <a href="#">
+                <article class="latestArticle">
+                    <img src="./images/slide1.jpg" alt="slide1" class="latestImg">
+                    <div class="latestDate" style="color: rgb(102, 115, 128);">Nov. 17, 2020</div>
+                    <div class="latestTitle">Virtual Open House 2020 | Porte ouvertes virtuelle 2020</div>
+                </article>
+            </a>
+            <a href="#">
+                <article class="latestArticle">
+                    <img src="./images/slide2.jpg" alt="slide1" class="latestImg">
+                    <div class="latestDate" style="color: rgb(102, 115, 128);">Nov. 17, 2020</div>
+                    <div class="latestTitle">Virtual Open House 2020 | Porte ouvertes virtuelle 2020</div>
+                </article>
+            </a>
+            <a href="#">
+                <article class="latestArticle">
+                    <img src="./images/slide3.jpg" alt="slide1" class="latestImg">
+                    <div class="latestDate" style="color: rgb(102, 115, 128);">Nov. 17, 2020</div>
+                    <div class="latestTitle">Virtual Open House 2020 | Porte ouvertes virtuelle 2020</div>
+                </article>
+            </a>
+            <a href="#">
+                <article class="latestArticle">
+                    <img src="./images/slide1.jpg" alt="slide1" class="latestImg">
+                    <div class="latestDate" style="color: rgb(102, 115, 128);">Nov. 17, 2020</div>
+                    <div class="latestTitle">Virtual Open House 2020 | Porte ouvertes virtuelle 2020</div>
+                </article>
+            </a>
+        </div>
+    </div>
+    <div class="events">
+        <div id="floatEvents">
+            events<span style="color: red">@CS</span>
+        </div>
+        <div class="eventsGrid">
+            <a href="#">
+                <article class="eventsArticle">
+                    <div class="eventsDateWrapper">
+                        <div class="eventsDate">
+                            13
+                        </div>
+                        <div class="eventsMonth">
+                            Nov
+                        </div>
+                    </div>
+                    <div class="eventsTitle">
+                        Virtual Collaboration Techniques to Catalyze Open Innovation
+                    </div>
+                    <div class="eventsCategory">
+                        Announcement
+                    </div>
+                </article>
+            </a>
+
+            <a href="#">
+                <article class="eventsArticle">
+                    <div class="eventsDateWrapper">
+                        <div class="eventsDate">
+                            13
+                        </div>
+                        <div class="eventsMonth">
+                            Nov
+                        </div>
+                    </div>
+                    <div class="eventsTitle">
+                        Virtual Collaboration Techniques to Catalyze Open Innovation
+                    </div>
+                    <div class="eventsCategory">
+                        Announcement
+                    </div>
+                </article>
+            </a>
+            <a href="#">
+                <article class="eventsArticle">
+                    <div class="eventsDateWrapper">
+                        <div class="eventsDate">
+                            13
+                        </div>
+                        <div class="eventsMonth">
+                            Nov
+                        </div>
+                    </div>
+                    <div class="eventsTitle">
+                        Virtual Collaboration Techniques to Catalyze Open Innovation
+                    </div>
+                    <div class="eventsCategory">
+                        Announcement
+                    </div>
+                </article>
+            </a>
+            <a href="#">
+                <article class="eventsArticle">
+                    <div class="eventsDateWrapper">
+                        <div class="eventsDate">
+                            13
+                        </div>
+                        <div class="eventsMonth">
+                            Nov
+                        </div>
+                    </div>
+                    <div class="eventsTitle">
+                        Virtual Collaboration Techniques to Catalyze Open Innovation
+                    </div>
+                    <div class="eventsCategory">
+                        Announcement
+                    </div>
+                </article>
+            </a>
+            <a href="#">
+                <article class="eventsArticle">
+                    <div class="eventsDateWrapper">
+                        <div class="eventsDate">
+                            13
+                        </div>
+                        <div class="eventsMonth">
+                            Nov
+                        </div>
+                    </div>
+                    <div class="eventsTitle">
+                        Virtual Collaboration Techniques to Catalyze Open Innovation
+                    </div>
+                    <div class="eventsCategory">
+                        Announcement
+                    </div>
+                </article>
+            </a>
+            <a href="#">
+                <article class="eventsArticle">
+                    <div class="eventsDateWrapper">
+                        <div class="eventsDate">
+                            13
+                        </div>
+                        <div class="eventsMonth">
+                            Nov
+                        </div>
+                    </div>
+                    <div class="eventsTitle">
+                        Virtual Collaboration Techniques to Catalyze Open Innovation
+                    </div>
+                    <div class="eventsCategory">
+                        Announcement
+                    </div>
+                </article>
+            </a>
+            <a href="#">
+                <div id="allEvents">
+                    All Events
+                </div>
+            </a>
+
+        </div>
+    </div>
+    <!-- footer section -->
+    <footer>
+        <div class="footerInfoWrapper">
+            <div class="footerRequests">
+                All content related request should be sent to
+                <a href="#">
+                    webadmin@cs.mcgill.ca
+                </a>
+            </div>
+            <div class="credits">
+                ©McGill University 2020
+                <a href="#">Credits</a>
+            </div>
+        </div>
+        <div class="footerLogo">
+            <img src="./images/logo-footer.png" alt="footerLogo">
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='./scripts/slideshow.js')}}"></script>
+    <script src="./scripts/index.js"></script>
+</body>
+</html>
