@@ -34,11 +34,11 @@ header{
 .nav{
     color: white;
     display: grid;
-    grid-template-columns: auto 13% 13% 13% 10% 10% 8%;
+    grid-template-columns: auto 13% 13% 13% 13% 8% 8%;
     grid-template-rows: 50% 50%;
     grid-template-areas:
-        "logo prospective academic research donate about search"
-        "logo people news employment donate about search";
+        "logo prospective academic research donate login search"
+        "logo people news employment about login search";
     grid-gap: 1px;
 }
 #logo,
@@ -50,6 +50,7 @@ header{
 #employment,
 #donate,
 #about,
+#login,
 #search
 {
     display: flex;
@@ -85,6 +86,9 @@ header{
 #news{
     grid-area: news;
 }
+#login{
+    grid-area: login;
+}
 #employment{
     grid-area: employment;
 }
@@ -95,6 +99,7 @@ header{
 #news:hover,
 #employment:hover,
 #donate:hover,
+#login:hover,
 #about:hover{
     background-color: red;
 }
