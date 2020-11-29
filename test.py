@@ -1,6 +1,5 @@
 import os
 from flask import Flask, redirect, url_for, render_template, request, Markup
-from testLog import *
 
 app = Flask(__name__)
 
@@ -37,8 +36,8 @@ def login():
 @app.route("/attempt-login", methods=["POST", "GET"])
 def attempt_login():
     print("/attemp-login")
-    if request.method == "POST":
-        testLog()
+    #if request.method == "POST":
+        #testLog()
     return render_template("html/login/login.html")
 
 @app.route('/prospective-menu')
@@ -66,4 +65,4 @@ def research():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8007)
+    app.run()
