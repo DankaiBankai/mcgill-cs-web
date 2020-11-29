@@ -17,7 +17,7 @@ teaching = Markup("""
                 <div class="caption">Temp Image 2</div>
             </div>
         </a>
-        <a>
+        <a href="#">
             <div class="aSlide fade">
                 <img src="/static/images/slide3.jpg" alt="tmpImage3">
                 <div class="caption">Temp Image 3</div>
@@ -38,6 +38,30 @@ def login():
         user = request.form["username"]
         password = request.form["password"]
     return render_template()
+
+@app.route('/prospective')
+def prospective():
+    return render_template("html/prospective/menu-prospective.html")
+
+@app.route('/people')
+def people():
+    return render_template("html/people/menu-people.html")
+
+@app.route('/academic')
+def academic():
+    return render_template("html/academic/menu-academic.html")
+
+@app.route('/news')
+def news():
+    return render_template("html/news/news.html")
+
+@app.route('/about')
+def about():
+    return render_template("html/about/menu-about.html")
+@app.route('/research')
+def research():
+    return render_template("html/research/research.html")
+
 
 if __name__ == "__main__":
     app.run()

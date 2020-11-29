@@ -14,17 +14,17 @@
         <!-- Header and navigation bar -->
         <div id="nav-wrapper">
             <nav class="nav">
-                <a href="index.html" id="logo">
+                <a href="{{ url_for('home')}}" id="logo">
                     <img src="{{ url_for('static', filename='./images/logo-header.png')}}" alt="Logo of SOCS">
                 </a>
-                <a href="./html/prospective/menu-propesctive.html" id="prospective">Prospective</a>
-                <a href="./html/people/menu-people.html" id="people">People</a>
-                <a href="./html/academic/menu-academic.html" id="academic">Academic</a>
-                <a href="./html/news/news.html" id="news">News</a>
-                <a href="./html/research/research.html" id="research">Research</a>
+                <a href="{{ url_for('prospective')}}" id="prospective">Prospective</a>
+                <a href="{{ url_for('people')}}" id="people">People</a>
+                <a href="{{ url_for('academic')}}" id="academic">Academic</a>
+                <a href="{{ url_for('news')}}" id="news">News</a>
+                <a href="{{ url_for('research')}}" id="research">Research</a>
                 <a href="#" id="employment">Employment</a>
                 <a href="#" id="donate">Donate</a>
-                <a href="./html/about/menu-about.html" id="about">About</a>
+                <a href="{{ url_for('about')}}" id="about">About</a>
                 <div id="search">
                     search
                 </div>
@@ -54,28 +54,28 @@
             <!-- todo change this -->
             <a href="#">
                 <article class="latestArticle">
-                    <img src="./images/slide1.jpg" alt="slide1" class="latestImg">
+                    <img src="/static/images/slide1.jpg" alt="slide1" class="latestImg">
                     <div class="latestDate" style="color: rgb(102, 115, 128);">Nov. 17, 2020</div>
                     <div class="latestTitle">Virtual Open House 2020 | Porte ouvertes virtuelle 2020</div>
                 </article>
             </a>
             <a href="#">
                 <article class="latestArticle">
-                    <img src="./images/slide2.jpg" alt="slide1" class="latestImg">
+                    <img src="/static/images/slide2.jpg" alt="slide1" class="latestImg">
                     <div class="latestDate" style="color: rgb(102, 115, 128);">Nov. 17, 2020</div>
                     <div class="latestTitle">Virtual Open House 2020 | Porte ouvertes virtuelle 2020</div>
                 </article>
             </a>
             <a href="#">
                 <article class="latestArticle">
-                    <img src="./images/slide3.jpg" alt="slide1" class="latestImg">
+                    <img src="/static/images/slide3.jpg" alt="slide1" class="latestImg">
                     <div class="latestDate" style="color: rgb(102, 115, 128);">Nov. 17, 2020</div>
                     <div class="latestTitle">Virtual Open House 2020 | Porte ouvertes virtuelle 2020</div>
                 </article>
             </a>
             <a href="#">
                 <article class="latestArticle">
-                    <img src="./images/slide1.jpg" alt="slide1" class="latestImg">
+                    <img src="/static/images/slide1.jpg" alt="slide1" class="latestImg">
                     <div class="latestDate" style="color: rgb(102, 115, 128);">Nov. 17, 2020</div>
                     <div class="latestTitle">Virtual Open House 2020 | Porte ouvertes virtuelle 2020</div>
                 </article>
@@ -219,10 +219,10 @@
             </div>
         </div>
         <div class="footerLogo">
-            <img src="./images/logo-footer.png" alt="footerLogo">
+            <img src="/static/images/logo-footer.png" alt="footerLogo">
         </div>
     </footer>
     <script src="{{ url_for('static', filename='./scripts/slideshow.js')}}"></script>
-    <script src="./scripts/index.js"></script>
+    <script src="{{ url_for('static', filename='./scripts/index.js')}}"></script>
 </body>
 </html>
