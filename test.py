@@ -7,25 +7,22 @@ app = Flask(__name__)
 teaching = Markup("""
         <a href="#">
             <div class="aSlide fade">
-                <img src="/static/images/slide1.jpg" alt="tmpImage1">
-                <div class="caption">Temp Image 1</div>
+                <img src="/static/images/29_Remote_Learning_Resources...._Xj4iyVJ.png" alt="tmpImage1">
+                <div class="caption">Remote Learning Resources</div>
             </div>
         </a>
         <a href="#">
             <div class="aSlide fade">
-                <img src="/static/images/slide2.jpg" alt="tmpImage2">
-                <div class="caption">Temp Image 2</div>
+                <img src="/static/images/24_Remote_Teaching_in_the_Fall.png" alt="tmpImage2">
+                <div class="caption">Remote Teaching in The Fall</div>
             </div>
         </a>
         <a href="#">
             <div class="aSlide fade">
-                <img src="/static/images/slide3.jpg" alt="tmpImage3">
-                <div class="caption">Temp Image 3</div>
+                <img src="/static/images/StudentInLectureHallWearingMask-767x431.png" alt="tmpImage3">
+                <div class="caption">Current state of Covid-19</div>
             </div>
         </a>
-        <div id="floatTeaching">
-            teaching<span style="color: red">@CS</span>
-        </div>
     """)
 
 @app.route("/", methods=["GET"])
