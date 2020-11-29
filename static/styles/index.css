@@ -6,6 +6,7 @@
     border: 0;
     font-family: 'Montserrat', sans-serif;
 }
+
 body{
     display: grid;
     grid-template-columns: 70% 30%;
@@ -16,6 +17,7 @@ body{
         "latest events"
         "footer footer";
     height: 100%;
+    grid-row: auto;
 }
 /* top bar -> header and website navigation */
 header{

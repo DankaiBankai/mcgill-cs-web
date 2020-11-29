@@ -37,7 +37,7 @@ def login():
     if request.method == "POST":
         user = request.form["username"]
         password = request.form["password"]
-    return render_template()
+    return render_template("html/login/login.html")
 
 @app.route('/prospective-menu')
 def prospective():
