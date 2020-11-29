@@ -1,23 +1,19 @@
-import mysql.connector
-from mysql.connector import Error
+#!/usr/bin/python3
 
-try:
-    connection = mysql.connector.connect(host='localhost',
-                                         database='Electronics',
-                                         user='pynative',
-                                         password='pynative@#29')
-    if connection.is_connected():
-        db_Info = connection.get_server_info()
-        print("Connected to MySQL Server version ", db_Info)
-        cursor = connection.cursor()
-        cursor.execute("select database();")
-        record = cursor.fetchone()
-        print("You're connected to database: ", record)
+import pymysql
 
-except Error as e:
-    print("Error while connecting to MySQL", e)
-finally:
-    if (connection.is_connected()):
-        cursor.close()
-        connection.close()
-        print("MySQL connection is closed")
+# Open database connection
+db = pymysql.connect("localhost","testuser","test123","TESTDB" )
+
+# prepare a cursor object using cursor() method
+cursor = db.cursor()
+
+# execute SQL query using execute() method.
+cursor.execute("SELECT VERSION()")
+
+# Fetch a single row using fetchone() method.
+data = cursor.fetchone()
+print ("Database version : %s " % data)
+
+# disconnect from server
+db.close()
