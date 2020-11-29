@@ -1,0 +1,2 @@
+def testLog():
+    print("TEST")

@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>McGill School of Computer Science</title>
-    <!--
-    <link rel="stylesheet" href="styles/index.css">
-    -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='./scripts/login.js') }}"></script>
+    
+
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./styles/index.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./styles/login-form.css') }}">
 </head>
@@ -40,7 +42,7 @@
             <form class="login-form">
                 <input type="text" placeholder="username" />
                 <input type="password" placeholder="password" />
-                <button>login</button>
+                <button type="button" onclick="attemptLogin()" >login</button>
             </form>
         </div>
     </div>
