@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>McGill School of Computer Science</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='./styles/index.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='./styles/menu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./styles/index.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./styles/menu.css')}}">
 </head>
 <body>
     <header>
         <div id="nav-wrapper">
             <nav class="nav">
-                <a href="../../index.html" id="logo">
-                    <img src="../../images/logo-header.png" alt="Logo of SOCS">
+                <a href="{{ url_for('home')}}" id="logo">
+                    <img src="{{ url_for('static', filename='./images/logo-header.png')}}" alt="Logo of SOCS">
                 </a>
-                <a href="../prospective/menu-prospective.html" id="prospective">Prospective</a>
-                <a href="../people/menu-people.html" id="people">People</a>
-                <a href="./menu-academic.html" id="academic">Academic</a>
-                <a href="../news/news.html" id="news">News</a>
-                <a href="../research/research.html" id="research">Research</a>
+                <a href="{{ url_for('prospective')}}" id="prospective">Prospective</a>
+                <a href="{{ url_for('people')}}" id="people">People</a>
+                <a href="{{ url_for('academic')}}" id="academic">Academic</a>
+                <a href="{{ url_for('news')}}" id="news">News</a>
+                <a href="{{ url_for('research')}}" id="research">Research</a>
                 <a href="#" id="employment">Employment</a>
                 <a href="#" id="donate">Donate</a>
-                <a href="../about/menu-about.html" id="about">About</a>
+                <a href="{{ url_for('about')}}" id="about">About</a>
                 <div id="search">
                     search
                 </div>
@@ -30,7 +30,7 @@
 
 
     <div class="banner">
-        <img src="../../images/academic-stock.jpg" class="banner-image">
+        <img src="../../../static/images/academic-stock.jpg" class="banner-image">
         <div class="banner-box">
           <div class="banner-text">Academic</div>
         </div>
@@ -115,7 +115,7 @@
             </div>
         </div>
         <div class="footerLogo">
-            <img src="../../images/logo-footer.png" alt="footerLogo">
+            <img src="../../../static/images/logo-footer.png" alt="footerLogo">
         </div>
     </footer>
 

@@ -39,15 +39,15 @@ def login():
         password = request.form["password"]
     return render_template()
 
-@app.route('/prospective')
+@app.route('/prospective-menu')
 def prospective():
     return render_template("html/prospective/menu-prospective.html")
 
-@app.route('/people')
+@app.route('/people-menu')
 def people():
     return render_template("html/people/menu-people.html")
 
-@app.route('/academic')
+@app.route('/academic-menu')
 def academic():
     return render_template("html/academic/menu-academic.html")
 
@@ -55,7 +55,7 @@ def academic():
 def news():
     return render_template("html/news/news.html")
 
-@app.route('/about')
+@app.route('/about-menu')
 def about():
     return render_template("html/about/menu-about.html")
 @app.route('/research')
