@@ -1,25 +1,23 @@
-# Module Imports
-import mariadb
-import sys
+import mysql.connector
+from mysql.connector import Error
 
-# Connect to MariaDB Platform
 try:
-    conn = mariadb.connect(
-        user="cs307-group07@localhost",
-        password="q6m527HgKJuLStZD",
-        host="0.0.0.0",
-        database="cs307-group07-DB"
+    connection = mysql.connector.connect(host='localhost',
+                                         database='Electronics',
+                                         user='pynative',
+                                         password='pynative@#29')
+    if connection.is_connected():
+        db_Info = connection.get_server_info()
+        print("Connected to MySQL Server version ", db_Info)
+        cursor = connection.cursor()
+        cursor.execute("select database();")
+        record = cursor.fetchone()
+        print("You're connected to database: ", record)
 
-    )
-except mariadb.Error as e:
-    print(f"Error connecting to MariaDB Platform: {e}")
-    sys.exit(1)
-
-# Get Cursor
-cur = conn.cursor()
-
-cur.execute("SELECT * FROM users")
-
-# Print Result-set
-for (user) in cur:
-    print(user)
+except Error as e:
+    print("Error while connecting to MySQL", e)
+finally:
+    if (connection.is_connected()):
+        cursor.close()
+        connection.close()
+        print("MySQL connection is closed")
