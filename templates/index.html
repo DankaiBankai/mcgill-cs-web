@@ -25,6 +25,7 @@
                 <a href="#" id="employment">Employment</a>
                 <a href="#" id="donate">Donate</a>
                 <a href="{{ url_for('about')}}" id="about">About</a>
+                <a href="{{ url_for('login')}}" id="login">Login</a>
                 <div id="search">
                     search
                 </div>
@@ -35,6 +36,9 @@
     <div class="teaching">
         <div class="slideshow-container" onmouseover="changeCaptionBackground('black')" onmouseout="changeCaptionBackground('rgba(0,0,0,0.35)')">
             {{teaching|safe}}
+            <div id="floatTeaching">
+                teaching<span style="color: red">@CS</span>
+            </div>
             <a class="prev" onclick="moveSlides(-1)">&#10094;</a>\n
             <a class="next" onclick="moveSlides(1)">&#10095;</a>\n
         </div>
@@ -54,30 +58,30 @@
             <!-- todo change this -->
             <a href="#">
                 <article class="latestArticle">
-                    <img src="/static/images/slide1.jpg" alt="slide1" class="latestImg">
-                    <div class="latestDate" style="color: rgb(102, 115, 128);">Nov. 17, 2020</div>
+                    <img src="/static/images/openHouse.jpeg" alt="slide1" class="latestImg">
+                    <div class="latestDate" style="color: rgb(102, 115, 128);">Oct. 25, 2020</div>
                     <div class="latestTitle">Virtual Open House 2020 | Porte ouvertes virtuelle 2020</div>
                 </article>
             </a>
             <a href="#">
                 <article class="latestArticle">
-                    <img src="/static/images/slide2.jpg" alt="slide1" class="latestImg">
-                    <div class="latestDate" style="color: rgb(102, 115, 128);">Nov. 17, 2020</div>
-                    <div class="latestTitle">Virtual Open House 2020 | Porte ouvertes virtuelle 2020</div>
+                    <img src="/static/images/CovidConcerns.jpg" alt="slide1" class="latestImg">
+                    <div class="latestDate" style="color: rgb(102, 115, 128);">Oct. 5,2020</div>
+                    <div class="latestTitle">Concerns related to COVID-19</div>
                 </article>
             </a>
             <a href="#">
                 <article class="latestArticle">
-                    <img src="/static/images/slide3.jpg" alt="slide1" class="latestImg">
-                    <div class="latestDate" style="color: rgb(102, 115, 128);">Nov. 17, 2020</div>
-                    <div class="latestTitle">Virtual Open House 2020 | Porte ouvertes virtuelle 2020</div>
+                    <img src="/static/images/ThreeProfessors.jpg" alt="slide1" class="latestImg">
+                    <div class="latestDate" style="color: rgb(102, 115, 128);">Nov. 5, 2020</div>
+                    <div class="latestTitle">Three SOCS professors awarded large grants</div>
                 </article>
             </a>
             <a href="#">
                 <article class="latestArticle">
-                    <img src="/static/images/slide1.jpg" alt="slide1" class="latestImg">
-                    <div class="latestDate" style="color: rgb(102, 115, 128);">Nov. 17, 2020</div>
-                    <div class="latestTitle">Virtual Open House 2020 | Porte ouvertes virtuelle 2020</div>
+                    <img src="/static/images/Oana_Balmau.jpg" alt="slide1" class="latestImg">
+                    <div class="latestDate" style="color: rgb(102, 115, 128);">Oct. 27, 2020</div>
+                    <div class="latestTitle">Assistant Professor Oana Balmau wins CORE Award</div>
                 </article>
             </a>
         </div>
@@ -101,7 +105,7 @@
                         Virtual Collaboration Techniques to Catalyze Open Innovation
                     </div>
                     <div class="eventsCategory">
-                        Announcement
+                        COLLOQUIUM
                     </div>
                 </article>
             </a>
@@ -110,17 +114,17 @@
                 <article class="eventsArticle">
                     <div class="eventsDateWrapper">
                         <div class="eventsDate">
-                            13
+                            17
                         </div>
                         <div class="eventsMonth">
-                            Nov
+                            Sep
                         </div>
                     </div>
                     <div class="eventsTitle">
-                        Virtual Collaboration Techniques to Catalyze Open Innovation
+                        McGill IT Services Virtual Fair
                     </div>
                     <div class="eventsCategory">
-                        Announcement
+                        INFO_SESSION
                     </div>
                 </article>
             </a>
@@ -128,17 +132,17 @@
                 <article class="eventsArticle">
                     <div class="eventsDateWrapper">
                         <div class="eventsDate">
-                            13
+                            19
                         </div>
                         <div class="eventsMonth">
-                            Nov
+                            Jun
                         </div>
                     </div>
                     <div class="eventsTitle">
-                        Virtual Collaboration Techniques to Catalyze Open Innovation
+                        Virtual Convocation
                     </div>
                     <div class="eventsCategory">
-                        Announcement
+                        OTHER
                     </div>
                 </article>
             </a>
@@ -146,17 +150,17 @@
                 <article class="eventsArticle">
                     <div class="eventsDateWrapper">
                         <div class="eventsDate">
-                            13
+                            29
                         </div>
                         <div class="eventsMonth">
-                            Nov
+                            Oct
                         </div>
                     </div>
                     <div class="eventsTitle">
-                        Virtual Collaboration Techniques to Catalyze Open Innovation
+                        Wanted: YOU, the leaders of the cybersecurity era!
                     </div>
                     <div class="eventsCategory">
-                        Announcement
+                        INFO_SESSION
                     </div>
                 </article>
             </a>
@@ -164,17 +168,17 @@
                 <article class="eventsArticle">
                     <div class="eventsDateWrapper">
                         <div class="eventsDate">
-                            13
+                            24
                         </div>
                         <div class="eventsMonth">
-                            Nov
+                            SEP
                         </div>
                     </div>
                     <div class="eventsTitle">
-                        Virtual Collaboration Techniques to Catalyze Open Innovation
+                        Image Guided neurosurgery at the MNI
                     </div>
                     <div class="eventsCategory">
-                        Announcement
+                        COLLOQUIUM
                     </div>
                 </article>
             </a>
@@ -182,17 +186,17 @@
                 <article class="eventsArticle">
                     <div class="eventsDateWrapper">
                         <div class="eventsDate">
-                            13
+                            12
                         </div>
                         <div class="eventsMonth">
-                            Nov
+                            SEP
                         </div>
                     </div>
                     <div class="eventsTitle">
-                        Virtual Collaboration Techniques to Catalyze Open Innovation
+                        Towards Platial Data Science
                     </div>
                     <div class="eventsCategory">
-                        Announcement
+                        INFO_SESSION
                     </div>
                 </article>
             </a>
