@@ -56,7 +56,7 @@ def news():
     SET content='{0}'
     WHERE ID=0"""
     update_string = update_string.format(teaching)
-    SQL_Interface.update(update_string)
+    #SQL_Interface.update(update_string)
     return render_template("html/news/news.html")
 
 @app.route('/about-menu')
