@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+import pymysql
 import os
 from flask import Flask, redirect, url_for, render_template, request, Markup
 
@@ -23,6 +25,21 @@ teaching = Markup("""
             </div>
         </a>
     """)
+
+
+
+# Open database connection
+db = pymysql.connect("localhost","cs307-group07","q6m527HgKJuLStZD","cs307-group07-DB" )
+
+# prepare a cursor object using cursor() method
+cursor = db.cursor()
+
+# Query content of 'teaching' slide show in DB
+cursor.execute("SELECT content FROM teaching")
+rows = cursor.fetchall()
+teaching = Markup(rows[0])
+
+
 
 @app.route("/", methods=["GET"])
 def home():
@@ -54,6 +71,28 @@ def academic():
 
 @app.route('/news')
 def news():
+    teaching = Markup("""
+        <a href="#">
+        <p>HELLOOOOOOOOOO</p>
+            <div class="aSlide fade">
+                <img src="/static/images/29_Remote_Learning_Resources...._Xj4iyVJ.png" alt="tmpImage1">
+                <div class="caption">Remote Learning Resources</div>
+            </div>
+        </a>
+        <a href="#">
+            <div class="aSlide fade">
+                <img src="/static/images/24_Remote_Teaching_in_the_Fall.png" alt="tmpImage2">
+                <div class="caption">Remote Teaching in The Fall</div>
+            </div>
+        </a>
+        <a href="#">
+            <div class="aSlide fade">
+                <img src="/static/images/StudentInLectureHallWearingMask-767x431.png" alt="tmpImage3">
+                <div class="caption">Current state of Covid-19</div>
+            </div>
+        </a>
+    """)
+    cursor.execute("UPDATE teaching SET content = '" + teaching + "' WHERE ID=0")
     return render_template("html/news/news.html")
 
 @app.route('/about-menu')
