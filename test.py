@@ -17,26 +17,36 @@ cursor.execute("SELECT content FROM teaching")
 rows = cursor.fetchall()
 teaching = Markup(rows[0])
 
+usualTeaching = Markup("""teaching<span style="color: red">@CS</span>""")
+editTeaching = Markup("""<a href="{{ url_for('editTeaching')}}" style="text-decoration: none; color: white">Edit teaching</a>""")
+
 
 @app.route("/", methods=["GET"])
 def home():
     query_string = "SELECT content FROM teaching"
     data = SQL_Interface.query(query_string)
     teaching = data[0]
-    return render_template("index.html", teaching=teaching)
+    #check if have permission, change usualTeaching to editTeaching
+    return render_template("index.html", teaching=teaching, editTeaching=editTeaching)
 
 @app.route("/editTeaching", methods=["POST", "GET"])
 def editTeaching():
     if request.method == "POST":
         newteaching = request.form["editArea"]
-        # add to database, first test
+        # add to database
+        #teaching = Markup(newteaching)
+        #update_string = """UPDATE teaching
+        #SET content='{0}'
+        #WHERE ID=0"""
+        #update_string = update_string.format(teaching)
+
         print(newteaching)
-        return render_template("html/edit/edit.html", teaching = newteaching)
+        return render_template("html/edit/editConfirmation.html")
     else:
         query_string = "SELECT content FROM teaching"
         data = SQL_Interface.query(query_string)
         teaching = data[0]
-        return render_template("html/edit/edit.html", teaching=teaching)
+        return render_template("html/edit/editTeaching.html", teaching=teaching)
 
 @app.route("/login", methods=["POST", "GET"])
 def login():
