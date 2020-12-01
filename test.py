@@ -25,6 +25,18 @@ def home():
     teaching = data[0]
     return render_template("index.html", teaching=teaching)
 
+@app.route("/editTeaching", method=["POST", "GET"])
+def editTeaching:
+    if request.method == "POST":
+        newteaching = request.form["editArea"]
+        # add to database, first test
+        print(newteaching)
+    else:
+        query_string = "SELECT content FROM teaching"
+        data = SQL_Interface.query(query_string)
+        teaching = data[0]
+        return render_template("html/edit/edit.html", teaching=teaching)
+
 @app.route("/login", methods=["POST", "GET"])
 def login():
     print("/login")
@@ -65,7 +77,6 @@ def about():
 @app.route('/research')
 def research():
     return render_template("html/research/research.html")
-
 
 if __name__ == "__main__":
     app.run()
