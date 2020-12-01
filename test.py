@@ -27,7 +27,7 @@ def home():
     data = SQL_Interface.query(query_string)
     teaching = data[0]
     #check if have permission, change usualTeaching to editTeaching
-    return render_template("index.html", teaching=teaching, editTeaching=editTeaching)
+    return render_template("index.html", teaching=teaching, editTeaching=usualTeaching)
 
 @app.route("/editTeaching", methods=["POST", "GET"])
 def editTeaching():
