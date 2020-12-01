@@ -17,9 +17,10 @@ cursor.execute("SELECT content FROM teaching")
 rows = cursor.fetchall()
 teaching = Markup(rows[0])
 
-usualTeaching = Markup("""teaching<span style="color: red">@CS</span>""")
-editTeaching = Markup("""<a href="{{ url_for('editTeaching')}}" style="text-decoration: none; color: white">Edit teaching</a>""")
 
+# pass usualTeaching if user doesn't have permission and editTeaching2 if he does
+usualTeaching = Markup("""teaching<span style="color: red">@CS</span>""")
+editTeaching2 = Markup("""<a href="/editTeaching" style="text-decoration: none; color: white"><span style="color: red">Edit Teaching</span></a>""")
 
 @app.route("/", methods=["GET"])
 def home():
@@ -27,7 +28,7 @@ def home():
     data = SQL_Interface.query(query_string)
     teaching = data[0]
     #check if have permission, change usualTeaching to editTeaching
-    return render_template("index.html", teaching=teaching, editTeaching=usualTeaching)
+    return render_template("index.html", teaching=teaching, editTeaching=editTeaching2)
 
 @app.route("/editTeaching", methods=["POST", "GET"])
 def editTeaching():
