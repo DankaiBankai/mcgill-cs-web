@@ -57,7 +57,25 @@ def gen_info():
     query_string = "SELECT content FROM prospective WHERE ID='generalInfo'"
     data = SQL_Interface.query(query_string)
     content = data[0][0]
-    return render_template("html/prospective/gen-info.html", content=content)
+    editGenInfo = Markup("""<a href="/editGeneralInfo" style="text-decoration: none;"><span>Edit</span></a>""")
+    return render_template("html/prospective/gen-info.html", edit=editGenInfo, content=content)
+
+@app.route('/editGeneralInfo', methods=["POST", "GET"])
+def edit_gen_info():
+    if request.method == "POST":
+        newInfo = request.form["editArea"]
+        update_string ="""UPDATE prospective
+                        SET content={0}
+                        WHERE ID='generalInfo'"""
+        update_string = update_string.format(newInfo)
+        print("general info content has been updated")
+        return render_template("html/edit/editConfirmation.html")
+    else:
+        query_string = "SELECT content FROM prospective WHERE ID='generalInfo'"
+        data = SQL_Interface.query(query_string)
+        info = data[0][0]
+        return render_template("html/edit/editGeneralInfo.html", content=info)
+
 
 @app.route('/people-menu')
 def people():
