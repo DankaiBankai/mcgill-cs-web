@@ -5,6 +5,7 @@
     <title>McGill School of Computer Science</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='./styles/index.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='./styles/content.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./styles/content.css')}}">
 </head>
 <body>
     <header>
@@ -32,17 +33,23 @@
 
     <div class="menu-section-container">
         <div class="menu-section">
-            <h4>General Info</h4>
-            <ul>
-                <li>Contacts</li>
-                <li>Facilities</li>
-            </ul>
-        </div>
+             <h4>Prospective</h4>
+	     <ul>
+	     	<li>General Info</li>
+		<li>Why CS?</li>
+		<li>CEGEP</li>
+		<li>Freshman</li>
+		<li>Choosing a major</li>
+		<li>Combining studies</li>
+		<li>Internships</li>
+	     </ul>
+
+	</div>
     </div>
 
     <div class="content-container">
         <div class="content">
-            
+		{{content|safe}}            
         </div>
     </div>
     
