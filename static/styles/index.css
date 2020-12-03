@@ -374,3 +374,22 @@ footer img{
     padding-right: 190px;
     float: right;
 }
+
+@media all  and (max-width: 800px){
+    body{
+        display: inline;
+    }
+    .nav{
+        display: inline;
+    }
+    #floatEvents{
+        padding-left: 130px;
+    }
+    .eventsGrid{
+        margin-left: 50px;
+    }
+    .footerWrapper{
+        background-color: black;
+    }
+
+}
