@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Success</title>
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/index.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/edit.css">
+</head>
+    <body>
+        <header>
+            <!-- todo add search -->
+            <!-- Header and navigation bar -->
+            <div id="nav-wrapper">
+                <nav class="nav">
+                    <a href="{{ url_for('home')}}" id="logo">
+                        <img src="{{ url_for('static', filename='./images/logo-header.png')}}" alt="Logo of SOCS">
+                    </a>
+                    <a href="{{ url_for('prospective')}}" id="prospective">Prospective</a>
+                    <a href="{{ url_for('people')}}" id="people">People</a>
+                    <a href="{{ url_for('academic')}}" id="academic">Academic</a>
+                    <a href="{{ url_for('news')}}" id="news">News</a>
+                    <a href="{{ url_for('research')}}" id="research">Research</a>
+                    <a href="#" id="employment">Employment</a>
+                    <a href="#" id="donate">Donate</a>
+                    <a href="{{ url_for('about')}}" id="about">About</a>
+                    <a href="{{ url_for('login')}}" id="login">Login</a>
+                    <div id="search">
+                        search
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- editing box -->
+        <div class="edit-page">
+            <div class="form">
+                <form action="#" method="post" class="edit-form">
+                    <label for="editArea">Modify Admission - Undergrads</label>
+                    <br>
+                    <textarea autofocus required rows="30" cols="80" id="editArea" name="editArea">{{content|safe}}</textarea>
+                    <br>
+                    <input id="editSubmit" type="submit" value="Submit"/>
+                </form>
+            </div>
+        </div>
+
+        <!-- footer section -->
+        <footer>
+            <div class="footerInfoWrapper">
+                <div class="footerRequests">
+                    All content related request should be sent to
+                    <a href="#">
+                        webadmin@cs.mcgill.ca
+                    </a>
+                </div>
+                <div class="credits">
+                    ©McGill University 2020
+                    <a href="#">Credits</a>
+                </div>
+            </div>
+            <div class="footerLogo">
+                <img src="/static/images/logo-footer.png" alt="footerLogo">
+            </div>
+        </footer>
+        <script src="{{ url_for('static', filename='./scripts/slideshow.js')}}"></script>
+        <script src="{{ url_for('static', filename='./scripts/index.js')}}"></script>
+
+    </body>
+</html>

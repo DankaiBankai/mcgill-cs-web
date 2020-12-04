@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <title>McGill School of Computer Science</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='./styles/index.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='./styles/menu.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./styles/content.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./styles/content.css')}}">
+</head>
 <body>
     <header>
         <div id="nav-wrapper">
@@ -29,39 +31,23 @@
     </header>
 
 
-    <div class="banner">
-        <img src="../../../static/images/prospective-stock.jpg" class="banner-image">
-        <div class="banner-box">
-          <div class="banner-text">Prosepective</div>
-        </div>
-      </div>
-    
-
     <div class="menu-section-container">
-
         <div class="menu-section">
-            <h4>Prospective</h4>
-            <ul>
-		<li> <a href="/general_info">General Info</a> </li>
-		<li> <a href="/why">Why CS?</a> </li>
-		<li> Cegep </li>
-		<li> Freshman </li>
-		<li> Choosing a Major </li>
-                <li>Combining studies</li>
-                <li>Internships</li>
-            </ul>
-        </div>
-
-        <div class="menu-section" >
-            <h4>Admission</h4>
-            <ul>
-		<li> <a href="/undergrads">Undergrads</a> </li>
+             <h4>Prospective</h4>
+	     <ul>
+	     	<li> <a href="/undergrads">Undergrads</a> </li>
 		<li> Transfer </li>
-            </ul>         
-        </div>
+	     </ul>
 
+	</div>
     </div>
 
+    <div class="content-container">
+        <div class="content">
+		{{edit|safe}}
+		{{content|safe}}            
+        </div>
+    </div>
     
 
 
@@ -80,7 +66,7 @@
             </div>
         </div>
         <div class="footerLogo">
-            <img src="../../../static/images/logo-footer.png" alt="footerLogo">
+            <img src="../../images/logo-footer.png" alt="footerLogo">
         </div>
     </footer>
 
