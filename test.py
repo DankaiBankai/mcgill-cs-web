@@ -10,7 +10,7 @@ app.secret_key = 'supersecretkey'
 
 # pass usualTeaching if user doesn't have permission and editTeaching2 if he does
 usualTeaching = Markup("""teaching<span style="color: red">@CS</span>""")
-editTeaching2 = Markup("""<a href="/editTeaching" style="text-decoration: none; color: white"><span style="color: red">Edit Teaching</span></a>""")
+editTeaching2 = Markup("""<a id="edit" href="/editTeaching" style="text-decoration: none; color: white"><span style="color: red">Edit Teaching</span></a>""")
 
 @app.route("/", methods=["GET"])
 def home():
@@ -69,7 +69,7 @@ def gen_info():
     query_string = "SELECT content FROM prospective WHERE ID='generalInfo'"
     data = SQL_Interface.query(query_string)
     content = data[0][0]
-    editGenInfo = Markup("""<a href="/editGeneralInfo" style="text-decoration: none;"><span>Edit</span></a>""")
+    editGenInfo = Markup("""<a id="edit" href="/editGeneralInfo" style="text-decoration: none;"><span>Edit</span></a>""")
     return render_template("html/prospective/gen-info.html", edit=editGenInfo, content=content)
 
 @app.route('/editGeneralInfo', methods=["POST", "GET"])
@@ -95,7 +95,7 @@ def why_cs():
         query_string = "SELECT content FROM prospective WHERE ID='whyCS'"
         data = SQL_Interface.query(query_string)
         content = data[0][0]
-        editWhyCS = Markup("""<a href="/editWhyCS" style="text-decoration: none;"><span>Edit</span></a>""")
+        editWhyCS = Markup("""<a id="edit" href="/editWhyCS" style="text-decoration: none;"><span>Edit</span></a>""")
         return render_template("html/prospective/why.html", edit=editWhyCS, content=content)
 
 @app.route('/editWhyCS', methods=["POST", "GET"])
@@ -121,7 +121,7 @@ def undergrads():
     query_string = "SELECT content FROM prospective WHERE ID='undergrads'"
     data = SQL_Interface.query(query_string)
     content = data[0][0]
-    editUndergrads = Markup("""<a href="/editUndergrads" style="text-decoration: none;"><span>Edit</span></a>""")
+    editUndergrads = Markup("""<a id="edit" href="/editUndergrads" style="text-decoration: none;"><span>Edit</span></a>""")
     return render_template("html/prospective/undergrads.html", edit=editUndergrads, content=content)
 
 @app.route('/editUndergrads', methods=["POST", "GET"])
@@ -161,6 +161,14 @@ def about():
 @app.route('/research')
 def research():
     return render_template("html/research/research.html")
+
+@app.route('/verify-ticket', methods=["POST", "GET"])
+def verifyTicket():
+    data = request.get_json()
+    print(data)
+    ticket = data['verify']['ticket']
+    message = SQL_Interface.verify(ticket)
+    return json.dumps({"message": message})
 
 if __name__ == "__main__":
     app.run()

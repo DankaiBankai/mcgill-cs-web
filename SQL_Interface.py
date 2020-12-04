@@ -42,13 +42,24 @@ def checkCredentials(username, password):
 
 def generateTicket(username):
     global cursor
-    ticket = random.getrandbits(64)
+    ticket = random.getrandbits(32)
     query = """UPDATE users SET ticket={0} WHERE username='{1}'"""
     query = query.format(ticket, username)
     print(query)
     cursor.execute(query)
     db.commit()
     return ticket
+
+def verify(ticket):
+    global cursor
+    print(ticket)
+    query = """SELECT * FROM users WHERE ticket='{0}'"""
+    query = query.format(ticket)
+    cursor.execute(query)
+    if (cursor.rowcount == 0):
+        return "Fail"
+    else:
+        return "Success"
 
 
 
