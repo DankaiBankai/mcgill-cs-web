@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import pymysql
 import re
+import random
 
 # Open database connection
 db = pymysql.connect("localhost","cs307-group07","q6m527HgKJuLStZD","cs307-group07-DB" )
@@ -27,3 +28,24 @@ def format_to_user(string):
      string = re.sub(">", ">\n", string)
      string = re.sub("<", "\n<", string)
      return string
+
+def checkCredentials(username, password):
+    global cursor
+    query = """SELECT username,password FROM users"""
+    cursor.execute(query)
+    data = cursor.fetchall()
+    username_DB = data[0][0]
+    password_DB = data[1][0]
+    return (username_DB == username and password_DB == password)
+
+def generateTicket(username):
+    global cursor
+    ticket = random.randbytes(8)
+    query = """UPDATE users
+               SET ticket='{0}'
+               WHERE username='{1}'"""
+    query = query.format(ticket, username)
+    return ticket
+
+
+

@@ -2,13 +2,19 @@
 function attemptLogin() {
     var username = $('input[name=username]').val();
     var password = $('input[name=password]').val();
+	
+    let credentials = { 'username': username, 'password': password };
+
+
     $.ajax({
-        type: "POST",
-        url: "/attempt-login",
-        datatype: "json",
-        data: { 'username': username, 'password': password },
+        url: '/attempt-login',
+        contentType: "application/json;charset=utf-8",
+        data: JSON.stringify({credentials}),
+	dataType: "json",
+	type: 'POST',
         success: function (response) {
-            alert("success")
-        }
+            alert(response)
+        },
+	async:false
     });
 }
