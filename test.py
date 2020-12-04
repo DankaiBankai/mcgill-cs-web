@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 import pymysql
 import os
-from flask import Flask, redirect, url_for, render_template, request, Markup, flash
+from flask import Flask, redirect, url_for, render_template, request, Markup, make_response
 import SQL_Interface
 import json
 
 app = Flask(__name__)
-app.secret_key = 'superrandomsecretkeypleasedontcrack'
+app.secret_key = 'supersecretkey'
 
 # pass usualTeaching if user doesn't have permission and editTeaching2 if he does
 usualTeaching = Markup("""teaching<span style="color: red">@CS</span>""")
@@ -50,18 +50,15 @@ def attempt_login():
     print("/attemp-login")
     data = request.get_json()
     print(data)
+    username = data['credentials']['username']
+    password = data['credentials']['password']
     logged_in = SQL_Interface.checkCredentials(username, password)
     if logged_in:
         print("loggged in")
         ticket = SQL_Interface.generateTicket(username)
-        #resp = make_response(render_template("/"))
-        #resp.set_cookie('ticket', ticket)
-        flash('You were successfully logged in')
-        return render_template("/")
+        return json.dumps({"message": "Success", "ticket": ticket})
     else:
-        print("wrong")
-        flash('Wrong username or password')
-        return "Wrong username or password"
+        return json.dumps({"message": "Wrong username or password"})
 
 @app.route('/prospective')
 def prospective():

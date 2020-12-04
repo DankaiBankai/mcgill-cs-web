@@ -17,7 +17,9 @@ def query(query_string):
 
 def update(update_string):
     global cursor
+    global db
     cursor.execute(update_string)
+    db.commit()
 
 def format_to_sql(string):
     string = re.sub(">\n", ">", string)
@@ -35,16 +37,17 @@ def checkCredentials(username, password):
     cursor.execute(query)
     data = cursor.fetchall()
     username_DB = data[0][0]
-    password_DB = data[1][0]
+    password_DB = data[0][1]
     return (username_DB == username and password_DB == password)
 
 def generateTicket(username):
     global cursor
-    ticket = random.randbytes(8)
-    query = """UPDATE users
-               SET ticket='{0}'
-               WHERE username='{1}'"""
+    ticket = random.getrandbits(64)
+    query = """UPDATE users SET ticket={0} WHERE username='{1}'"""
     query = query.format(ticket, username)
+    print(query)
+    cursor.execute(query)
+    db.commit()
     return ticket
 
 
