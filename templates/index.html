@@ -8,12 +8,16 @@
 
     -->
     <link rel="stylesheet" href="../static/styles/index.css">
-    <script src="{{ url_for('static', filename='./scripts/login.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='./scripts/login.js') }}"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="{{ url_for('static', filename='./scripts/search.js')}}"></script>
+
 </head>
 <body onload="javascript:verifyTicket()">
     <header>
-        <!-- todo add search -->
         <!-- Header and navigation bar -->
         <div id="nav-wrapper">
             <nav class="nav">
@@ -30,9 +34,17 @@
                 <a href="{{ url_for('about')}}" id="about">About</a>
                 <a href="{{ url_for('login')}}" id="login">Login</a>
                 <div id="search">
-                    search
+                    <button onclick="searchField()" style="background: transparent">
+                        <img class="searchImage" src="../static/images/Search-Button-PNG-HD-Quality.png" alt="search">
+                    </button>
                 </div>
             </nav>
+            <div id="searchBar" style="display: none">
+                <form>
+                    <input id="searchField" type="text" placeholder="Search">
+                    <input id="searchButton" onclick="go()" value="Go" readonly>
+                </form>
+            </div>
         </div>
     </header>
     <!-- Teaching section -->
@@ -215,25 +227,23 @@
         </div>
     </div>
     <!-- footer section -->
-    <div class="footerWrapper">
-        <footer>
-            <div class="footerInfoWrapper">
-                <div class="footerRequests">
-                    All content related request should be sent to
-                    <a href="#">
-                        webadmin@cs.mcgill.ca
-                    </a>
-                </div>
-                <div class="credits">
-                    ©McGill University 2020
-                    <a href="#">Credits</a>
-                </div>
+    <footer>
+        <div class="footerInfoWrapper">
+            <div class="footerRequests">
+                All content related request should be sent to
+                <a href="#">
+                    webadmin@cs.mcgill.ca
+                </a>
             </div>
-            <div class="footerLogo">
-                <img src="/static/images/logo-footer.png" alt="footerLogo">
+            <div class="credits">
+                ©McGill University 2020
+                <a href="#">Credits</a>
             </div>
-        </footer>
-    </div>
+        </div>
+        <div class="footerLogo">
+            <img src="/static/images/logo-footer.png" alt="footerLogo">
+        </div>
+    </footer>
     <script src="{{ url_for('static', filename='./scripts/slideshow.js')}}"></script>
     <script src="{{ url_for('static', filename='./scripts/index.js')}}"></script>
 </body>

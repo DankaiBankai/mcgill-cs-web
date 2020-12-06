@@ -108,6 +108,39 @@ header{
     color: white;
 }
 
+.searchImage{
+    width: 25px;
+    height: 25px;
+    filter: brightness(0) invert(1);
+    cursor: pointer;
+}
+
+#searchBar{
+    background-color: black;
+}
+
+#searchField{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+}
+
+#searchButton{
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    color: black;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+#searchButton:hover{
+    background-color: red;
+    color: white;
+}
+
 .teaching{
     grid-area: teaching;
     box-sizing: border-box;
