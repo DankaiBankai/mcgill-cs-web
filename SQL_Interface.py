@@ -50,7 +50,6 @@ def generateTicket(username):
     ticket = random.getrandbits(32)
     query = """UPDATE users SET ticket={0} WHERE username='{1}'"""
     query = query.format(ticket, username)
-    print(query)
     cursor.execute(query)
     db.commit()
     return ticket
@@ -58,7 +57,6 @@ def generateTicket(username):
 #Verify if ticket from users browser matches ticket in DB
 def verify(ticket):
     global cursor
-    print(ticket)
     query = """SELECT * FROM users WHERE ticket='{0}'"""
     query = query.format(ticket)
     cursor.execute(query)
