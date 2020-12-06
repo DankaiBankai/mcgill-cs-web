@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./styles/index.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./styles/login-form.css') }}">
+    <script src="{{ url_for('static', filename='../../../static/scripts/search.js')}}"></script>
 </head>
 <body>
     <header>
@@ -30,9 +31,17 @@
                 <a href="{{ url_for('about')}}" id="about">About</a>
                 <a href="{{ url_for('login')}}" id="login">Login</a>
                 <div id="search">
-                    search
+                    <button onclick="searchField()" style="background: transparent">
+                        <img class="searchImage" src="../../../static/images/Search-Button-PNG-HD-Quality.png" alt="search">
+                    </button>
                 </div>
             </nav>
+            <div id="searchBar" style="display: none">
+                <form>
+                    <input id="searchField" type="text" placeholder="Search">
+                    <input id="searchButton" onclick="go()" value="Go" readonly>
+                </form>
+            </div>
         </div>
     </header>
 

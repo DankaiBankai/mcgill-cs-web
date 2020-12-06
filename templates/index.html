@@ -5,14 +5,11 @@
     <title>McGill School of Computer Science</title>
     <!--
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./styles/index.css') }}">
-
     -->
     <link rel="stylesheet" href="../static/styles/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ url_for('static', filename='./scripts/login.js') }}"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <script src="{{ url_for('static', filename='./scripts/search.js')}}"></script>
 
 </head>
@@ -52,10 +49,10 @@
         <div class="slideshow-container" onmouseover="changeCaptionBackground('black')" onmouseout="changeCaptionBackground('rgba(0,0,0,0.35)')">
             {{teaching|safe}}
             <div id="floatTeaching">
+                <!--
 		    {{editTeaching|safe}}
-		    <!--
+		         -->
                 teaching<span style="color: red">@CS</span>
-                    -->
             </div>
             <a class="prev" onclick="moveSlides(-1)">&#10094;</a>\n
             <a class="next" onclick="moveSlides(1)">&#10095;</a>\n
