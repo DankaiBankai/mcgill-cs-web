@@ -71,6 +71,7 @@ body {
     background-color: whitesmoke;
     border-radius: 1rem;
     margin: 2vw;
+    min-height: 800px;
 }
 
  .content{

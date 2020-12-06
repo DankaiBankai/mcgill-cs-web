@@ -56,7 +56,7 @@
     column-count: 2;
     width: 100%;
     margin-top: 1%;
-    
+    min-height: 800px
   }
 
   .menu-section {
