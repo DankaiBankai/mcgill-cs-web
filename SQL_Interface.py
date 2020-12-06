@@ -9,28 +9,32 @@ db = pymysql.connect("localhost","cs307-group07","q6m527HgKJuLStZD","cs307-group
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
 
-
+#Takes a SELECT query string as input and executes the query
 def query(query_string):
     global cursor
     cursor.execute(query_string)
     return cursor.fetchall()
 
+#Takes a UPDATE query string as input and executes the query
 def update(update_string):
     global cursor
     global db
     cursor.execute(update_string)
     db.commit()
 
+#Removes newline characters before and after each tag
 def format_to_sql(string):
     string = re.sub(">\n", ">", string)
     string = re.sub("\n<", "<", string)
     return string
 
+#Adds newline characters before and after each tag for readability
 def format_to_user(string):
      string = re.sub(">", ">\n", string)
      string = re.sub("<", "\n<", string)
      return string
 
+#Verify credentials
 def checkCredentials(username, password):
     global cursor
     query = """SELECT username,password FROM users"""
@@ -40,6 +44,7 @@ def checkCredentials(username, password):
     password_DB = data[0][1]
     return (username_DB == username and password_DB == password)
 
+#Generate login ticket
 def generateTicket(username):
     global cursor
     ticket = random.getrandbits(32)
@@ -50,6 +55,7 @@ def generateTicket(username):
     db.commit()
     return ticket
 
+#Verify if ticket from users browser matches ticket in DB
 def verify(ticket):
     global cursor
     print(ticket)

@@ -12,6 +12,7 @@ app.secret_key = 'supersecretkey'
 usualTeaching = Markup("""teaching<span style="color: red">@CS</span>""")
 editTeaching2 = Markup("""<a id="edit" href="/editTeaching" style="text-decoration: none; color: white"><span style="color: red">Edit Teaching</span></a>""")
 
+#GET home page
 @app.route("/", methods=["GET"])
 def home():
     query_string = "SELECT content FROM teaching"
@@ -20,6 +21,7 @@ def home():
     #check if have permission, change usualTeaching to editTeaching
     return render_template("index.html", teaching=teaching, editTeaching=editTeaching2)
 
+#GET edit page or POST user edits
 @app.route("/editTeaching", methods=["POST", "GET"])
 def editTeaching():
     if request.method == "POST":
@@ -38,33 +40,34 @@ def editTeaching():
         data = SQL_Interface.query(query_string)
         teaching = data[0][0]
         teaching = SQL_Interface.format_to_user(teaching)
-        return render_template("html/edit/editTeaching.html", teaching=teaching)
+        return render_template("html/edit/editTeaching.html", teaching=teaching) #Just like render() in NodeJS or Django
 
-@app.route("/login", methods=["POST", "GET"])
+#GET login page
+@app.route("/login", methods=["GET"])
 def login():
-    print("/login")
     return render_template("html/login/login.html")
 
+#POST user credentials to attemp login
 @app.route("/attempt-login", methods=["POST", "GET"])
 def attempt_login():
-    print("/attemp-login")
     data = request.get_json()
-    print(data)
     username = data['credentials']['username']
     password = data['credentials']['password']
     logged_in = SQL_Interface.checkCredentials(username, password)
+
     if logged_in:
-        print("loggged in")
         ticket = SQL_Interface.generateTicket(username)
         return json.dumps({"message": "Success", "ticket": ticket})
     else:
         return json.dumps({"message": "Wrong username or password"})
 
-@app.route('/prospective')
+#GET prospective-menu page
+@app.route('/prospective', methods=["GET"])
 def prospective():
     return render_template("html/prospective/menu-prospective.html")
 
-@app.route('/general_info')
+#GET general info page
+@app.route('/general_info', methods=["GET"])
 def gen_info():
     query_string = "SELECT content FROM prospective WHERE ID='generalInfo'"
     data = SQL_Interface.query(query_string)
@@ -72,9 +75,10 @@ def gen_info():
     editGenInfo = Markup("""<a id="edit" href="/editGeneralInfo" style="text-decoration: none;"><span>Edit</span></a>""")
     return render_template("html/prospective/gen-info.html", edit=editGenInfo, content=content)
 
+#GET edit page or POST user edits
 @app.route('/editGeneralInfo', methods=["POST", "GET"])
 def edit_gen_info():
-    if request.method == "POST":
+    if request.method == "POST": #Retrieve user edits and commit to DB
         newInfo = request.form["editArea"]
         newInfo = SQL_Interface.format_to_sql(newInfo)
         update_string ="""UPDATE prospective
@@ -83,14 +87,15 @@ def edit_gen_info():
         update_string = update_string.format(newInfo)
         print("general info content has been updated")
         return render_template("html/edit/editConfirmation.html")
-    else:
+    else: #Retrieve edit page with prefilled edit box
         query_string = "SELECT content FROM prospective WHERE ID='generalInfo'"
         data = SQL_Interface.query(query_string)
         info = data[0][0]
         info = SQL_Interface.format_to_user(info)
         return render_template("html/edit/editGeneralInfo.html", content=info)
 
-@app.route('/why')
+#GET whyCS page
+@app.route('/why', methods=["GET"])
 def why_cs():
         query_string = "SELECT content FROM prospective WHERE ID='whyCS'"
         data = SQL_Interface.query(query_string)
@@ -98,9 +103,10 @@ def why_cs():
         editWhyCS = Markup("""<a id="edit" href="/editWhyCS" style="text-decoration: none;"><span>Edit</span></a>""")
         return render_template("html/prospective/why.html", edit=editWhyCS, content=content)
 
+#GET edit page or POST user edits
 @app.route('/editWhyCS', methods=["POST", "GET"])
 def edit_whyCS():
-    if request.method == "POST":
+    if request.method == "POST": #Retrieve user edits and commit to DB
         newInfo = request.form["editArea"]
         newInfo = SQL_Interface.format_to_sql(newInfo)
         update_string ="""UPDATE prospective
@@ -109,14 +115,15 @@ def edit_whyCS():
         update_string = update_string.format(newInfo)
         print("why CS content has been updated")
         return render_template("html/edit/editConfirmation.html")
-    else:
+    else:#Retrieve edit page with prefilled edit box
         query_string = "SELECT content FROM prospective WHERE ID='whyCS'"
         data = SQL_Interface.query(query_string)
         info = data[0][0]
         info = SQL_Interface.format_to_user(info)
         return render_template("html/edit/editWhyCS.html", content=info)
 
-@app.route('/undergrads')
+#GET Undergrads page
+@app.route('/undergrads', methods=["GET"])
 def undergrads():
     query_string = "SELECT content FROM prospective WHERE ID='undergrads'"
     data = SQL_Interface.query(query_string)
@@ -124,9 +131,10 @@ def undergrads():
     editUndergrads = Markup("""<a id="edit" href="/editUndergrads" style="text-decoration: none;"><span>Edit</span></a>""")
     return render_template("html/prospective/undergrads.html", edit=editUndergrads, content=content)
 
+#GET edit page or POST user edits
 @app.route('/editUndergrads', methods=["POST", "GET"])
 def edit_undergrads():
-    if request.method == "POST":
+    if request.method == "POST":#Retrieve user edits and commit to DB
         newInfo = request.form["editArea"]
         newInfo = SQL_Interface.format_to_sql(newInfo)
         update_string ="""UPDATE prospective
@@ -135,40 +143,46 @@ def edit_undergrads():
         update_string = update_string.format(newInfo)
         print("undergrads content has been updated")
         return render_template("html/edit/editConfirmation.html")
-    else:
+    else:#Retrieve edit page with prefilled edit box
         query_string = "SELECT content FROM prospective WHERE ID='undergrads'"
         data = SQL_Interface.query(query_string)
         info = data[0][0]
         info = SQL_Interface.format_to_user(info)
         return render_template("html/edit/editUndergrads.html", content=info)
 
-@app.route('/people-menu')
+#GET people menu page
+@app.route('/people-menu', methods=["GET"])
 def people():
     return render_template("html/people/menu-people.html")
 
-@app.route('/academic-menu')
+#GET academic menu page
+@app.route('/academic-menu', methods=["GET"])
 def academic():
     return render_template("html/academic/menu-academic.html")
 
-@app.route('/news')
+#GET news page
+@app.route('/news', methods=["GET"])
 def news():
     return render_template("html/news/news.html")
 
-@app.route('/about-menu')
+#GET about menu page
+@app.route('/about-menu', methods=["GET"])
 def about():
     return render_template("html/about/menu-about.html")
 
-@app.route('/research')
+#GET research page
+@app.route('/research', methods=["GET"])
 def research():
     return render_template("html/research/research.html")
 
+#POST value of sotred ticket cookie and check if value matches DB
 @app.route('/verify-ticket', methods=["POST", "GET"])
 def verifyTicket():
     data = request.get_json()
-    print(data)
     ticket = data['verify']['ticket']
     message = SQL_Interface.verify(ticket)
     return json.dumps({"message": message})
+
 
 if __name__ == "__main__":
     app.run()
