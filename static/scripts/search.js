@@ -19,8 +19,12 @@ function go(){
         window.location.href = "/prospective";
         console.log("prospective");
     }
+    if (input.toLowerCase() === "login"){
+        window.location.href = "/login";
+        console.log("login");
+    }
     if (input.toLowerCase() === "academic"){
-        window.location.href = "/academic";
+        window.location.href = "/academic-menu";
         console.log("academic");
     }
     if (input.toLowerCase() === "research"){
@@ -36,7 +40,7 @@ function go(){
         console.log("login");
     }
     if (input.toLowerCase() === "people"){
-        window.location.href = "/people";
+        window.location.href = "/people-menu";
         console.log("people");
     }
     if (input.toLowerCase() === "news"){
@@ -48,7 +52,7 @@ function go(){
         console.log("employment");
     }
     if (input.toLowerCase() === "about"){
-        window.location.href = "/about";
+        window.location.href = "/about-menu";
         console.log("about");
     }
 }
