@@ -8,18 +8,14 @@ import json
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
 
-# pass usualTeaching if user doesn't have permission and editTeaching2 if he does
-usualTeaching = Markup("""teaching<span style="color: red">@CS</span>""")
-editTeaching2 = Markup("""<a id="edit" href="/editTeaching" style="text-decoration: none; color: white"><span style="color: red">Edit Teaching</span></a>""")
-
 #GET home page
 @app.route("/", methods=["GET"])
 def home():
     query_string = "SELECT content FROM teaching"
     data = SQL_Interface.query(query_string)
     teaching = data[0][0]
-    #check if have permission, change usualTeaching to editTeaching
-    return render_template("index.html", teaching=teaching, editTeaching=editTeaching2)
+    editTeaching = Markup("""<a id="edit" href="/editTeaching" style="text-decoration: none; color: white"><span style="color: red">Edit Teaching</span></a>""")
+    return render_template("index.html", teaching=teaching, editTeaching=editTeaching)
 
 #GET edit page or POST user edits
 @app.route("/editTeaching", methods=["POST", "GET"])

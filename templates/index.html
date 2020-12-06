@@ -8,9 +8,10 @@
 
     -->
     <link rel="stylesheet" href="../static/styles/index.css">
+    <script src="{{ url_for('static', filename='./scripts/login.js') }}"></script>
 
 </head>
-<body>
+<body onload="javascript:verifyTicket()">
     <header>
         <!-- todo add search -->
         <!-- Header and navigation bar -->
