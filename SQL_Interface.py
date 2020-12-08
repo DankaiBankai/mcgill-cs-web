@@ -20,6 +20,8 @@ def update(update_string):
     global cursor
     global db
     cursor.execute(update_string)
+    print("test")
+    print(cursor._last_executed)
     db.commit()
 
 #Removes newline characters before and after each tag

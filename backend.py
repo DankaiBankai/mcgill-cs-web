@@ -24,11 +24,11 @@ def editTeaching():
         newteaching = request.form["editArea"]
         # add to database
         teaching = Markup(newteaching)
+        print(teaching)
         teaching = SQL_Interface.format_to_sql(teaching)
-        update_string =  """UPDATE teaching
-                            SET content='{0}'
-                            WHERE ID=0"""
+        update_string =  """UPDATE teaching SET content='{0}' WHERE ID=0"""
         update_string = update_string.format(teaching)
+        SQL_Interface.update(update_string)
         print("teaching content has been updated")
         return render_template("html/edit/editConfirmation.html")
     else:
@@ -77,10 +77,9 @@ def edit_gen_info():
     if request.method == "POST": #Retrieve user edits and commit to DB
         newInfo = request.form["editArea"]
         newInfo = SQL_Interface.format_to_sql(newInfo)
-        update_string ="""UPDATE prospective
-                        SET content={0}
-                        WHERE ID='generalInfo'"""
+        update_string ="""UPDATE prospective SET content='{0}' WHERE ID='generalInfo'"""
         update_string = update_string.format(newInfo)
+        SQL_Interface.update(update_string)
         print("general info content has been updated")
         return render_template("html/edit/editConfirmation.html")
     else: #Retrieve edit page with prefilled edit box
@@ -105,10 +104,9 @@ def edit_whyCS():
     if request.method == "POST": #Retrieve user edits and commit to DB
         newInfo = request.form["editArea"]
         newInfo = SQL_Interface.format_to_sql(newInfo)
-        update_string ="""UPDATE prospective
-                          SET content={0}
-                          WHERE ID='generalInfo'"""
+        update_string ="""UPDATE prospective SET content='{0}' WHERE ID='whyCS'"""
         update_string = update_string.format(newInfo)
+        SQL_Interface.update(update_string)
         print("why CS content has been updated")
         return render_template("html/edit/editConfirmation.html")
     else:#Retrieve edit page with prefilled edit box
@@ -133,10 +131,9 @@ def edit_undergrads():
     if request.method == "POST":#Retrieve user edits and commit to DB
         newInfo = request.form["editArea"]
         newInfo = SQL_Interface.format_to_sql(newInfo)
-        update_string ="""UPDATE prospective
-                          SET content={0}
-                          WHERE ID='undergrads'"""
+        update_string ="""UPDATE prospective SET content='{0}' WHERE ID='undergrads'"""
         update_string = update_string.format(newInfo)
+        SQL_Interface.update(update_string);
         print("undergrads content has been updated")
         return render_template("html/edit/editConfirmation.html")
     else:#Retrieve edit page with prefilled edit box
